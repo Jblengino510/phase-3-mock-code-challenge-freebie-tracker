@@ -1,3 +1,4 @@
+puts "🌱Seeding..."
 puts "Creating companies..."
 Company.create(name: "Google", founding_year: 1998)
 Company.create(name: "Facebook", founding_year: 2004)
@@ -11,11 +12,17 @@ Dev.create(name: "Mr. Meseeks")
 Dev.create(name: "Gazorpazop")
 
 puts "Creating freebies..."
-
+20.times do
+    Freebie.create(
+        item_name: Faker::SlackEmoji.objects_and_symbols,
+        company_id: Company.ids.sample,
+        dev_id: Dev.ids.sample
+        )
+end
 # ***************************************************************
 # * TODO: create freebies! Remember, a freebie belongs to a dev *
 # * and a freebie belongs to a company.                         *
 # ***************************************************************
 # Create freebies Here
 
-puts "Seeding done!"
+puts "🌱Seeding done!"
